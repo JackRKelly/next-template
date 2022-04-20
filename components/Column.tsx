@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface Props {
 	className?: string;
@@ -12,7 +13,7 @@ const Column: React.FC<LayoutProps> = (props) => {
 	const { className, ...rest } = props;
 
 	return (
-		<div className={`w-11/12 lg:max-w-6xl md:w-4/6 m-auto ${className ?? ''}`} {...rest}>
+		<div className={classNames('w-11/12 lg:max-w-6xl md:w-4/6 m-auto', className)} {...rest}>
 			{props.children}
 		</div>
 	);
