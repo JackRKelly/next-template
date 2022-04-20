@@ -7,69 +7,41 @@ generator client {
   provider = "prisma-client-js"
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
 model Account {
   id                String  @id @default(cuid())
-  // Next-Auth requires this property to be in camelcase
-  userId            String  @map("user_id")
-  // Next-Auth requires this property to be in camelcase
-  providerAccountId String  @map("provider_account_id")
+  userId            String
   type              String
   provider          String
-  refreshToken      String? @map("refresh_token")
-  accessToken       String? @map("access_token")
-  expiresAt         Int?    @map("expires_at")
-  tokenType         String? @map("token_type")
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
   scope             String?
-  idToken           String? @map("id_token")
-  sessionState      String? @map("session_state")
+  id_token          String?
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
   id            String    @id @default(cuid())
   name          String?
-  username      String?   @unique
-  image         String?   @default("https://www.gravatar.com/avatar/?d=identicon")
-  role          Role      @default(USER)
   email         String?   @unique
-  // Next-Auth requires this property to be in camelcase
-  emailVerified DateTime? @map("email_verified")
-  isOnboarded   Boolean   @default(false) @map("is_onboarded")
-  country       String?
-  state         String?
-  age           Int?
-  biography     String?
-  company       String?
-  phoneNumber   String?   @map("phone_number")
-
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  Account Account[]
-  Session Session[]
-  @@map("users")
-}
-
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique @map("session_token")
-  // Next-Auth requires this property to be in camelcase
-  userId       String   @map("user_id")
-  expires      DateTime
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map("sessions")
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
 }
 
 model VerificationToken {
@@ -78,5 +50,4 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map("verification_tokens")
 }
