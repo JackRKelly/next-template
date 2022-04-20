@@ -1,6 +1,6 @@
 # Next Template
 
-A [Next.js](https://nextjs.org/) template with [Next-Auth](https://next-auth.js.org/), [Prisma](https://www.prisma.io/), [Postgres](https://www.postgresql.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind](https://tailwindcss.com/)
+A [Next.js](https://nextjs.org/) template with [Next-Auth](https://next-auth.js.org/), [Prisma](https://www.prisma.io/), [Postgres](https://www.postgresql.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind](https://tailwindcss.com/), and [React Query](https://react-query.tanstack.com/)
 
 ## Installation 💾
 
