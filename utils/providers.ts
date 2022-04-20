@@ -17,6 +17,7 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
 		})
 	);
 }
+
 if (process.env.DISCORD_CLIENT_ID && process.env.DISCORD_CLIENT_SECRET) {
 	providers.push(
 		DiscordProvider({
@@ -26,6 +27,7 @@ if (process.env.DISCORD_CLIENT_ID && process.env.DISCORD_CLIENT_SECRET) {
 		})
 	);
 }
+
 if (process.env.TWITTER_CLIENT_ID && process.env.TWITTER_CLIENT_SECRET) {
 	providers.push(
 		TwitterProvider({
@@ -52,6 +54,7 @@ if (process.env.TWITCH_CLIENT_ID && process.env.TWITCH_CLIENT_SECRET) {
 		})
 	);
 }
+
 if (process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET) {
 	providers.push(
 		SpotifyProvider({
@@ -65,6 +68,7 @@ if (process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET) {
 		})
 	);
 }
+
 if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
 	providers.push(
 		GoogleProvider({
@@ -76,6 +80,7 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
 		})
 	);
 }
+
 if (process.env.REDDIT_CLIENT_ID && process.env.REDDIT_CLIENT_SECRET) {
 	providers.push(
 		RedditProvider({
