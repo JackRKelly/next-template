@@ -32,8 +32,8 @@ node_modules/
 # deploy
 .vercel/
 
-# fuck npm
+# npm
 package-lock.json
 
-# IntelliJ code styles -- we use prettier + eslint
-.idea/codeStyles/
+# IntelliJ
+.idea
