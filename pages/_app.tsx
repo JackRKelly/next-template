@@ -14,21 +14,6 @@ const App: React.FC<AppProps & { err?: Error }> = (props) => {
 			<QueryClientProvider client={queryClient}>
 				<Hydrate state={pageProps.dehydratedState}>
 					<Component {...pageProps} err={err} />
-
-					<style jsx global>{`
-						#__next {
-							height: 100%;
-						}
-
-						input,
-						button {
-							font: inherit;
-						}
-
-						a {
-							color: inherit;
-						}
-					`}</style>
 				</Hydrate>
 
 				<ReactQueryDevtools />
